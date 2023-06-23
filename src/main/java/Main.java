@@ -3,7 +3,9 @@ import Broadcasts.Part;
 import Broadcasts.PartsOfTheBroadcast.AdvertisementPart;
 import Broadcasts.PartsOfTheBroadcast.InterviewPart;
 import Broadcasts.PartsOfTheBroadcast.SongPart;
+import Presenters.RegularPresenter;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,6 +26,10 @@ public class Main {
         partList.add(new InterviewPart(3,"Iterw 2"));
 
         Broadcast broadcast = new Broadcast(30,partList);
+
+        RegularPresenter rg = new RegularPresenter("Artem", Collections.singletonList(broadcast),2);
+
+        rg.getListOfBroadcasts().get(0).showAllPartsOfTheBroadcast();
 
         System.out.println(broadcast.getPartsList().size());
         System.out.println(broadcast.broadcastIncome());
