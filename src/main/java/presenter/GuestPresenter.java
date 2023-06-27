@@ -1,14 +1,13 @@
-package Presenters;
+package presenter;
 
-import Broadcasts.Broadcast;
-import Broadcasts.Part;
+import broadcast.Broadcast;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
 public class GuestPresenter extends Presenter{
-    private String resume;
+    private final String resume;
     public GuestPresenter(String name, List<Broadcast> listOfBroadcasts, String resume) {
         super(name, listOfBroadcasts);
         this.resume = resume;

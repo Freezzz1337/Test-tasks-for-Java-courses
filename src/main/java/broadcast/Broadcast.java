@@ -1,10 +1,12 @@
-package Broadcasts;
+package broadcast;
 
+import broadcast.parts.PaidPart;
+import broadcast.parts.UnpaidPart;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -12,8 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Broadcast {
     private double minutes;
-    private List<Part> partsList = new LinkedList<>();
-
+    private List<Part> partsList = new ArrayList<>();
     public Broadcast(double minutes, List<Part> partsList) {
         this.minutes = minutes;
         setPartsList(partsList);
@@ -30,25 +31,23 @@ public class Broadcast {
                 continue;
             }
 
-            if (part instanceof PaidBroadcast && timeOfPaidContent <= ((PaidBroadcast) part).getCostPerMinute()) {
+            if (part instanceof PaidPart && timeOfPaidContent <= ((PaidPart) part).getCostPerMinute()) {
                 timeOfPaidContent -= part.getDuration();
                 currentBroadcastTime += part.getDuration();
                 this.partsList.add(part);
-            } else if (part instanceof UnpaidBroadcast) {
+            } else if (part instanceof UnpaidPart) {
                 this.partsList.add(part);
                 currentBroadcastTime += part.getDuration();
             }
-
         }
     }
 
     public String broadcastIncome(){
-        return partsList.stream()
-                .filter(a-> a instanceof PaidBroadcast)
-                .mapToDouble(a -> ((PaidBroadcast) a).amountOfMoneyForBroadcasting())
+        return "Income from the current broadcast is " + partsList.stream()
+                .filter(a-> a instanceof PaidPart)
+                .mapToDouble(a -> ((PaidPart) a).amountOfMoneyForBroadcasting())
                 .sum() + " €";
     }
-
 
     public void showAllPartsOfTheBroadcast(){
         partsList.forEach(Part::show);

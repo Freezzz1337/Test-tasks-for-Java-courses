@@ -1,10 +1,9 @@
-package Broadcasts.PartsOfTheBroadcast;
+package broadcast.parts;
 
-import Broadcasts.UnpaidBroadcast;
 import lombok.Getter;
 
 @Getter
-public class SongPart extends UnpaidBroadcast {
+public class SongPart extends UnpaidPart {
     private final String artistName;
     private final String songName;
     

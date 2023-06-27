@@ -1,7 +1,6 @@
-package Presenters;
+package presenter;
 
-import Broadcasts.Broadcast;
-import Broadcasts.Part;
+import broadcast.Broadcast;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

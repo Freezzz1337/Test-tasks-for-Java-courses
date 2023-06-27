@@ -1,10 +1,9 @@
-package Broadcasts.PartsOfTheBroadcast;
+package broadcast.parts;
 
-import Broadcasts.PaidBroadcast;
 import lombok.Getter;
 
 @Getter
-public class AdvertisementPart extends PaidBroadcast {
+public class AdvertisementPart extends PaidPart {
     private final String advertisementName;
     public AdvertisementPart(int duration, String advertisementName) {
         super(duration);

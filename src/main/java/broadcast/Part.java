@@ -1,4 +1,4 @@
-package Broadcasts;
+package broadcast;
 
 import lombok.Getter;
 

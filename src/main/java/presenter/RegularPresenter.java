@@ -1,14 +1,13 @@
-package Presenters;
+package presenter;
 
-import Broadcasts.Broadcast;
-import Broadcasts.Part;
+import broadcast.Broadcast;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
 public class RegularPresenter extends Presenter {
-    private double workExperience;
+    private final double workExperience;
 
     public RegularPresenter(String name, List<Broadcast> listOfBroadcasts, double workExperience) {
         super(name, listOfBroadcasts);

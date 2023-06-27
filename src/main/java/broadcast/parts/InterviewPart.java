@@ -1,10 +1,9 @@
-package Broadcasts.PartsOfTheBroadcast;
+package broadcast.parts;
 
-import Broadcasts.PaidBroadcast;
 import lombok.Getter;
 
 @Getter
-public class InterviewPart extends PaidBroadcast {
+public class InterviewPart extends PaidPart {
     private final String personName;
     public InterviewPart(int duration, String personName) {
         super(duration);
